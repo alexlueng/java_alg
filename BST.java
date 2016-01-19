@@ -1,6 +1,6 @@
 import edu.princeton.cs.algs4.*;
 
-public class BST<key extends Comparable<Key>, Value> {
+public class BST<Key extends Comparable<Key>, Value> {
 
 	private Node root;
 
@@ -47,12 +47,12 @@ public class BST<key extends Comparable<Key>, Value> {
 
 
 	public void put(Key key, Value val) {
-		root = put(root, key.val);
+		root = put(root, key, val);
 	}
 
 	private Node put(Node x, Key key, Value val) {
 		if(x == null) {
-			return new Node(key, value, 1);
+			return new Node(key, val, 1);
 		}
 		int cmp = key.compareTo(x.key);
 		if(cmp < 0) {
@@ -70,7 +70,7 @@ public class BST<key extends Comparable<Key>, Value> {
 		return min(root).key;
 	}
 
-	private Key min(Node x) {
+	private Node min(Node x) {
 		if(x.left == null) {
 			return x;
 		}
@@ -81,7 +81,7 @@ public class BST<key extends Comparable<Key>, Value> {
 		return max(root).key;
 	}
 
-	private Key max(Node x) {
+	private Node max(Node x) {
 		if(x.right == null) {
 			return x;
 		}
@@ -96,7 +96,7 @@ public class BST<key extends Comparable<Key>, Value> {
 		return x.key;
 	}
 
-	private Key floor(Node x, Key key) {
+	private Node floor(Node x, Key key) {
 		if(x == null) {
 			return null;
 		}
@@ -123,7 +123,7 @@ public class BST<key extends Comparable<Key>, Value> {
 		return x.key;
 	}
 
-	private Key ceiling(Node x, Key key) {
+	private Node ceiling(Node x, Key key) {
 		if(x == null) {
 			return null;
 		}
@@ -151,7 +151,7 @@ public class BST<key extends Comparable<Key>, Value> {
 		if(x == null) {
 			return null;
 		}
-		int t = x.size(x,left);
+		int t = size(x.left);
 		if(t > k) {
 			return select(x.left, k);
 		} else if(t < k) {

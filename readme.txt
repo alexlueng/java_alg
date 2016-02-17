@@ -79,3 +79,7 @@ note 2016.01.19
 好像霸王项羽.时不利兮骓不逝,虞兮虞兮奈若何?
 于是我想收回借给朋友的钱,虽然不多,但是还能最后一战.
 
+
+#2016-02-18
+I am so afraid that my nose keep bleeding. So quit smoking, OK?
+I am serious this time, no more cigarrates.

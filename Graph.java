@@ -19,8 +19,8 @@ class Graph {
 		this(in.readInt());
 		int E = in.readInt();
 		for(int i = 0; i < E; i++) {
-			int v = in.ReadInt();
-			int w = in.ReadInt();
+			int v = in.readInt();
+			int w = in.readInt();
 			addEdge(v, w);
 		}
 	}

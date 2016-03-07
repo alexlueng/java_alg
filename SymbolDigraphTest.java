@@ -6,12 +6,12 @@ public class SymbolDigraphTest {
 		String delimiter = args[1];
 		SymbolDigraph sg = new SymbolDigraph(filename, delimiter);
 		Digraph G = sg.G();
-/*		while(!StdIn.isEmpty()) {
+		while(!StdIn.isEmpty()) {
 			String t = StdIn.readLine();
 			for(int v: G.adj(sg.index(t))) {
 				StdOut.println("	" + sg.name(v));
 			}
-		}*/
-		StdOut.print(G);
+		}
+		//StdOut.print(G);
 	}
 }

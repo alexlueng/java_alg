@@ -5,7 +5,7 @@ public class AcyclicSP {
 	private DirectedEdge[] edgeTo;
 	private double[] distTo;
 
-	public AcyclicSP(EdgeweightedDigraph G, int s) {
+	public AcyclicSP(EdgeWeightedDigraph G, int s) {
 		edgeTo = new DirectedEdge[G.V()];
 		distTo = new double[G.V()];
 
@@ -20,7 +20,7 @@ public class AcyclicSP {
 		}
 	}
 
-	private void relax(EdgeweightedDigraph G, int v) {
+	private void relax(EdgeWeightedDigraph G, int v) {
 		for(DirectedEdge e: G.adj(v)) {
 			int w = e.to();
 			if(distTo[w] > distTo[v] + e.weight()) {
@@ -53,7 +53,7 @@ public class AcyclicSP {
 		EdgeWeightedDigraph G;
 		G = new EdgeWeightedDigraph(new In(args[0]));
 		int s = Integer.parseInt(args[1]);
-		AcylicSP sp = new AcylicSP(G, s);
+		AcyclicSP sp = new AcyclicSP(G, s);
 
 		for(int t = 0; t < G.V(); t++) {
 			StdOut.print(s + " to " + t);

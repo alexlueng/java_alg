@@ -12,13 +12,13 @@ public class Topological {
 		}
 	}
 
-	// public Topological(EdgeWeightedDigraph G) {
-	// 	EdgeWeightedDirectedCycle finder = new EdgeWeightedDirectedCycle(G);
-	// 	if(!finder.hasCycle()) {
-	// 		DepthFirstOrder dfs = new DepthFirstOrder(G);
-	// 		order = dfs.reversePost();
-	// 	}
-	// }
+	public Topological(EdgeWeightedDigraph G) {
+		EdgeWeightedDirectedCycle finder = new EdgeWeightedDirectedCycle(G);
+		if(!finder.hasCycle()) {
+			DepthFirstOrder dfs = new DepthFirstOrder(G);
+			order = dfs.reversePost();
+		}
+	}
 
 	public Iterable<Integer> order() {
 		return order;
@@ -28,7 +28,7 @@ public class Topological {
 		return order != null;
 	}
 
-	public static void main(String[] args) {
+/*	public static void main(String[] args) {
 		String filename = args[0];
 		String separator = args[1];
 		SymbolDigraph sg = new SymbolDigraph(filename, separator);
@@ -37,5 +37,5 @@ public class Topological {
 		for(int v: top.order()) {
 			StdOut.println(sg.name(v));
 		}
-	}
+	}*/
 }

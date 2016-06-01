@@ -69,14 +69,14 @@ public class BST<Key extends Comparable<Key>, Value> {
 	public Key min() {
 		return min(root).key;
 	}
-
+// 一直向左走，直到遇到空值
 	private Node min(Node x) {
 		if(x.left == null) {
 			return x;
 		}
 		return min(x.left);
 	}
-
+// 一直向右走，直到遇到空值
 	public Key max() {
 		return max(root).key;
 	}
@@ -182,7 +182,8 @@ public class BST<Key extends Comparable<Key>, Value> {
 	public void deleteMin() {
 		root = deleteMin(root);
 	}
-
+// 找到最小值，然后将它的右节点（它必然会有右节点）作为它的父节点的左子树，这样可以保持树的有序性
+// 若有需要，还要更新节点数
 	private Node deleteMin(Node x) {
 		if(x.left == null) {
 			return x.right;
@@ -195,7 +196,11 @@ public class BST<Key extends Comparable<Key>, Value> {
 	public void delete(Key key) {
 		root = delete(root, key);
 	}
-
+// 对于删除任意节点：
+// 1. 将指向即将被删除的结点的链接保存为t
+// 2. 将x指向它的后继节点min(x.right)
+// 3. 将x的右链接指向deleteMin(x.right)
+// 4. 将x的左链接设为t.left
 	private Node delete(Node x, Key key) {
 		if(x == null) {
 			return null;
@@ -246,6 +251,17 @@ public class BST<Key extends Comparable<Key>, Value> {
 		if(cmphigh > 0) {
 			keys(x.right, queue, low, high);
 		}
+	}
+
+	public int height() {
+		return height(root);
+	}
+// 计算树的最大深度
+	private int height(Node x) {
+		if(x == null) {
+			return -1;
+		}
+		return 1 + Math.max(height(x.left), height(x.right));
 	}
 
 }
